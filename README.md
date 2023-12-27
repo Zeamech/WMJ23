@@ -8,3 +8,5 @@ This is where each of the Feature Branches with merge into once the feature is c
 
 Feature:
 When you are working on a new feature create a new branch with the title syntaxed as "Feature - (Feature Name)". When creating a feature branch make sure the branch is based of the current STABLE Develop Branch.
+
+![image](https://github.com/Zeamech/WMJ23/assets/107206516/0f9bd3c0-6182-4c3d-9163-4541f74ea77a)
