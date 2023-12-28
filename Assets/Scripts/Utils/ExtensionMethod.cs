@@ -10,4 +10,12 @@ public static class ExtensionMethod
         e.Template = Template;
         return e;
     }
+
+    public static Map Instantiate(Object mapPrefab, GameObject mapLocationPrefab)
+    {
+        GameObject Map = Object.Instantiate(mapPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+        Map map = Map.transform.GetComponent<Map>();
+        map.MapLocationPrefab = mapLocationPrefab;
+        return map;
+    }
 }

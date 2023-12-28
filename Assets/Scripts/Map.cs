@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    [HideInInspector] public GameObject MapLocationPrefab;
     [HideInInspector] public SpriteRenderer BGSpriteRenderer;
-    public List<List<LocationType>> MapLocations;
+    [HideInInspector] public List<List<LocationType>> MapLocations;
     public void Start()
 	{
         BGSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,6 +32,10 @@ public class Map : MonoBehaviour
         List<LocationType> finalLayer = new List<LocationType>();
         finalLayer.Add(LocationType.FinalBoss);
         MapLocations.Add(finalLayer);
+
+        // Instantiate a bunch of child prefabs for every map location, assign sprite based on Type, location based on position in list, arrows based on position in list.
+
+
     }
 
     public enum LocationType

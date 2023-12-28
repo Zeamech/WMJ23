@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject MapPrefab;
+    public GameObject MapLocationPrefab;
+
     [HideInInspector] public Map Map;
     [HideInInspector] public List<Ally> Party;
     //[HideInInspector] public List<CharmSong> Melodies;
@@ -17,8 +19,7 @@ public class GameManager : MonoBehaviour
         Gold = 20;
 
         // Generate Map
-        GameObject MapGO = Instantiate(MapPrefab, transform.position, Quaternion.identity);
-        Map = MapGO.GetComponent<Map>();
+        Map = ExtensionMethod.Instantiate(MapPrefab, MapLocationPrefab);
     }
 
     // Update is called once per frame
