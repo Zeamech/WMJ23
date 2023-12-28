@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1833264dd89aa43be51375ee225a66, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  BaseHealth: 0
-  BaseArmor: 0
+  Name: asdf
+  Description: asdf
+  BaseAttack: 2
+  BaseHealth: 2
+  BaseArmor: 2
   Icon: {fileID: 0}
   Animator: {fileID: 0}

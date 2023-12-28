@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bdc4dae42e75e49bb1f0a2389c5a6d, type: 3}
   m_Name: Basic Encounter 1
   m_EditorClassIdentifier: 
-  Enemies: 0100000001000000
+  Enemies:
+  - {fileID: 11400000, guid: 296281935940ea7409e9d958743105a9, type: 2}
+  - {fileID: 11400000, guid: 296281935940ea7409e9d958743105a9, type: 2}
+  - {fileID: 11400000, guid: 296281935940ea7409e9d958743105a9, type: 2}

@@ -5,5 +5,5 @@ using UnityEngine;
 public class Encounter : ScriptableObject
 {
     [SerializeField]
-    public List<Enemy> Enemies;
+    public List<EnemySO> Enemies;
 }
