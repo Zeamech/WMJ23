@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: asdf
   Description: asdf
-  BaseAttack: 2
-  BaseHealth: 2
-  BaseArmor: 2
+  BaseAttack: 1
+  BaseHealth: 3
+  BaseArmor: 3
   Icon: {fileID: 0}
   Animator: {fileID: 0}
