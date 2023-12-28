@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
 	}
 
 	// ### Enemy Attacks ### 
-	public void MeleeAttack()
+	public void MeleeAttack(Ally ally)
 	{
-
+		ally.Health -= Attack;
 	}
 }
