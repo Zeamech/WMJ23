@@ -7,6 +7,7 @@ public class Map : MonoBehaviour
     public float YSpacing;
     public float XSpacing;
     [HideInInspector] public GameObject MapLocationPrefab;
+    [HideInInspector] public GameObject MapArrowPrefab;
     [HideInInspector] public SpriteRenderer BGSpriteRenderer;
     [HideInInspector] public List<List<LocationType>> MapLocationTypes;
     [HideInInspector] public List<List<MapLocation>> MapLocations;
@@ -23,7 +24,7 @@ public class Map : MonoBehaviour
         MapLocationTypes.Add(firstLayer);
 
         // Add 20 random layers
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 19; i++)
         {
             // Generate 1 to 3 random locations
             List<LocationType> layer = new List<LocationType>();
@@ -70,7 +71,120 @@ public class Map : MonoBehaviour
         // Enable the BoxColliders (clickable locations) for the current layer
         foreach(MapLocation mapLocation in MapLocations[0]) mapLocation.BoxCollider.enabled = true;
 
-        // Set up all of the LineRenderers. 
+        // Set up all of the arrows. 
+        layerIndex = 0;
+        float arrowYOffset = YSpacing / -2f;
+        foreach (List<MapLocation> layer in MapLocations)
+		{
+
+            if(layerIndex == 0) // Starting point
+			{
+                Vector3 pos = new Vector3(layer[0].transform.position.x, layer[0].transform.position.y + arrowYOffset, 0);
+                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right * 0.75f, transform, ArrowDirection.Left); // Left
+                pos = new Vector3(layer[1].transform.position.x, layer[1].transform.position.y + arrowYOffset, 0);
+                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left * 0.75f, transform, ArrowDirection.Right); // Right
+            }
+			else // Draw arrows from previous layer
+			{
+                int xIndex = 0;
+                foreach(MapLocation mapLocation in layer)
+				{
+                    Vector3 pos = new Vector3(mapLocation.transform.position.x, mapLocation.transform.position.y + arrowYOffset, 0);
+                    switch (MapLocations[layerIndex - 1].Count)
+                    {
+                        case 1:
+                            if (layer.Count == 1) // Draw one up arrow
+							{
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up);
+							}
+                            else if (layer.Count == 2) // Left or right
+							{
+                                if(xIndex == 0) ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right, transform, ArrowDirection.Left); // Left
+                                else if(xIndex == 1) ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left, transform, ArrowDirection.Right); // Right
+                            }
+                            else if (layer.Count == 3) // Left, up, or right
+							{
+                                if (xIndex == 0) ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right, transform, ArrowDirection.Left); // Left
+                                else if (xIndex == 1) ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up); // Up
+                                else if (xIndex == 2) ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left
+                                    , transform, ArrowDirection.Right); // Right
+                            }
+                            break;
+                        case 2:
+                            if (layer.Count == 1) // 2 to 1: Draw a right and left arrow
+                            {
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left, transform, ArrowDirection.Right);
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right, transform, ArrowDirection.Left);
+                            }
+                            else if (layer.Count == 2) // 2 to 2: Up & Right, or Up & Left
+                            {
+                                if (xIndex == 0)
+                                {
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right * 0.75f, transform, ArrowDirection.Right);
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up);
+                                } 
+                                else if (xIndex == 1)
+								{
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left * 0.75f, transform, ArrowDirection.Left);
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up);
+                                }
+                            }
+                            else if (layer.Count == 3) // 2 to 3: Left, Right & Left, or Right
+							{
+                                if (xIndex == 0)
+                                {
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right, transform, ArrowDirection.Left);
+                                }
+                                else if (xIndex == 1)
+                                {
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left, transform, ArrowDirection.Right);
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right, transform, ArrowDirection.Left);
+                                }
+                                else if (xIndex == 2)
+								{
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left, transform, ArrowDirection.Right);
+                                }
+                            }
+                            break;
+                        case 3:
+                            if (layer.Count == 1) // 3 to 1: Right & Up & Left
+                            {
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left * 1.25f, transform, ArrowDirection.Right);
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up);
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right * 1.25f, transform, ArrowDirection.Left);
+                            }
+                            else if (layer.Count == 2) // 3 to 2: Right & Left
+                            {
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left, transform, ArrowDirection.Right);
+                                ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right, transform, ArrowDirection.Left);
+                            }
+                            else if (layer.Count == 3) // 3 to 3: Up & Left, Right & Up & Left, or Up & Right
+                            {
+                                if (xIndex == 0)
+                                {
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up);
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right * 1.25f, transform, ArrowDirection.Left);
+                                }
+                                else if (xIndex == 1)
+                                {
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left * 1.25f, transform, ArrowDirection.Right);
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up);
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.right * 1.25f, transform, ArrowDirection.Left);
+                                }
+                                else if (xIndex == 2)
+                                {
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos, transform, ArrowDirection.Up);
+                                    ExtensionMethod.Instantiate(MapArrowPrefab, pos + Vector3.left * 1.25f, transform, ArrowDirection.Right);
+                                }
+                            }
+                            break;
+                    }
+                    xIndex++;
+
+                }
+			}
+            layerIndex++;
+		}
     }
 
     public enum LocationType
@@ -82,4 +196,12 @@ public class Map : MonoBehaviour
         FinalBoss,
         NumberOfLocationTypes
     }
+
+    public enum ArrowDirection
+    {
+        Left,
+        Right,
+        Up
+    }
 }
+

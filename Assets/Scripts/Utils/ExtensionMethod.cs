@@ -12,11 +12,12 @@ public static class ExtensionMethod
         return e;
     }
 
-    public static Map Instantiate(Object mapPrefab, GameObject mapLocationPrefab)
+    public static Map Instantiate(Object mapPrefab, GameObject mapLocationPrefab, GameObject mapArrowPrefab)
     {
         GameObject Map = Object.Instantiate(mapPrefab, Vector3.zero, Quaternion.identity) as GameObject;
         Map map = Map.transform.GetComponent<Map>();
         map.MapLocationPrefab = mapLocationPrefab;
+        map.MapArrowPrefab = mapArrowPrefab;
         return map;
     }
 
@@ -26,5 +27,12 @@ public static class ExtensionMethod
         MapLocation loc = MapLocation.transform.GetComponent<MapLocation>();
         loc.Location = location;
         return loc;
+    }
+
+    public static GameObject Instantiate(Object mapArrowPrefab, Vector3 pos, Transform parent, ArrowDirection dir)
+    {
+        GameObject arrow = Object.Instantiate(mapArrowPrefab, pos, Quaternion.identity, parent) as GameObject;
+        arrow.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(dir.ToString());
+        return arrow;
     }
 }

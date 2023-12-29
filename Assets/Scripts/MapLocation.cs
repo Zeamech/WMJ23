@@ -18,15 +18,7 @@ public class MapLocation : MonoBehaviour
 
 	void Start()
     {
-		// Set the icon depending on the location type
-		switch (Location)
-		{
-			case LocationType.Creature: break;
-			case LocationType.Battle: break;
-			case LocationType.Treasure: break;
-			case LocationType.Shop: break;
-			case LocationType.FinalBoss: break;
-		}
+		SpriteRenderer.sprite = Resources.Load<Sprite>(Location.ToString());
 	}
 
     // Update is called once per frame

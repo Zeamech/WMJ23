@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapPrefab: {fileID: 1648691333089086292, guid: bb3c1f85ee855604585cce262952274a, type: 3}
   MapLocationPrefab: {fileID: 2771605854401834292, guid: 25ce9094b33a7a54e92e7d188a353cb7, type: 3}
+  MapArrowPrefab: {fileID: 7343398064825953584, guid: 66eecb0bd14417c4fa7331c951a973cc, type: 3}
   Map: {fileID: 0}
   Party: []
   Gold: 0
@@ -790,8 +791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   YMin: 0
-  YMax: 40
-  ScrollDistance: 4
+  YMax: 100
+  ScrollDistance: 5
 --- !u!81 &1917074936
 AudioListener:
   m_ObjectHideFlags: 0
@@ -835,7 +836,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -860,7 +861,7 @@ Transform:
   m_GameObject: {fileID: 1917074934}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

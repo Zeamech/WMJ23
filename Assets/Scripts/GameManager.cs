@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject MapPrefab;
     public GameObject MapLocationPrefab;
+    public GameObject MapArrowPrefab;
 
     [HideInInspector] public Map Map;
     [HideInInspector] public List<Ally> Party;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
         CurrentLayer = 0;
 
         // Generate Map
-        Map = ExtensionMethod.Instantiate(MapPrefab, MapLocationPrefab);
+        Map = ExtensionMethod.Instantiate(MapPrefab, MapLocationPrefab, MapArrowPrefab);
     }
 
     // Update is called once per frame
