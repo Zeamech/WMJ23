@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d722fdbc8ced374b81ffd69b4b0b3e0, type: 3}
-  m_Name: Charm
+  m_Name: Large Health Charm
   m_EditorClassIdentifier: 
+  Type: 0
   Icon: {fileID: 0}
-  Name: 
-  Description: 
+  Name: Large Health Charm
+  Description: Ally Gains 10 Health
+  Price: 50

@@ -5,9 +5,10 @@ public class Charm : ScriptableObject
 {
 	[SerializeField]
 	public CharmType Type;
-	public Sprite Icon;
+	public Sprite ItemIcon;
 	public string Name;
 	public string Description;
+	public int Price;
 
 	public enum CharmType
 	{
