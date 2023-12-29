@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static AllySO;
+using Random = UnityEngine.Random;
 
 public class Ally : MonoBehaviour
 {
-	public delegate void Attack();
+	public delegate void Attack(List<Enemy> enemies);
 	public List<Attack> Attacks;
 	public SpriteRenderer SpriteRenderer;
 	[SerializeField] public AllySO Template;
@@ -18,6 +19,7 @@ public class Ally : MonoBehaviour
 	[HideInInspector] public int MeleePower;
 	[HideInInspector] public int Health;
 	[HideInInspector] public int Armor;
+	[HideInInspector] public int AttackIndex = 0;
 	public void Start()
 	{
 		SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,7 +27,7 @@ public class Ally : MonoBehaviour
 		Attacks = new List<Attack>();
 		Charms = new List<Charm>();
 		CharmLevel = Template.BaseCharm;
-		MeleePower = BaseMeleePower;
+		BaseMeleePower = Template.MeleePower;
 		MaxHealth = Template.BaseHealth;
 		MaxArmor = Template.BaseArmor;
 		Reset();
@@ -62,17 +64,18 @@ public class Ally : MonoBehaviour
 
 
 	// ### Attack Functions ###
-	public void MeleeAttack()
+	public void MeleeAttack(List<Enemy> enemies)
+	{
+		int enemyIdx = Random.Range(0, enemies.Count);
+		enemies[enemyIdx].Health -= MeleePower;
+	}
+
+	public void CharmMagicAttack(List<Enemy> enemies)
 	{
 
 	}
 
-	public void CharmMagicAttack()
-	{
-
-	}
-
-	public void ArmorUp()
+	public void ArmorUp(List<Enemy> enemies)
 	{
 		Armor += 8;
 	}

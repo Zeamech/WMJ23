@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1833264dd89aa43be51375ee225a66, type: 3}
-  m_Name: Enemy
+  m_Script: {fileID: 11500000, guid: 9435d8dd9d2e7514e8ce2a3366ddd6cd, type: 3}
+  m_Name: BlueSquirrel
   m_EditorClassIdentifier: 
-  Name: asdf
-  Description: asdf
-  BaseAttack: 1
-  BaseHealth: 3
-  BaseArmor: 3
+  Attacks: 000000000000000000000000
   Icon: {fileID: 0}
   Animator: {fileID: 0}
+  CreatureName: Blue Squirrel
+  MeleePower: 3
+  BaseHealth: 6
+  BaseCharm: 100
+  BaseArmor: 2
