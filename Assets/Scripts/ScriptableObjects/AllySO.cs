@@ -9,6 +9,7 @@ public class AllySO : ScriptableObject
 	public Animator Animator; 
 
 	public string CreatureName;
+	public int CreatureID;
 	public int MeleePower;
 	public int BaseHealth;
 	public int BaseCharm; // 0-1000

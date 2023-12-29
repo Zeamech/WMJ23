@@ -9,6 +9,7 @@ public class Ally : MonoBehaviour
 	public delegate void Attack(List<Enemy> enemies);
 	public List<Attack> Attacks;
 	public SpriteRenderer SpriteRenderer;
+	public Animator Ani;
 	[SerializeField] public AllySO Template;
 
 	[HideInInspector] public int CharmLevel; //0-1000
@@ -30,6 +31,8 @@ public class Ally : MonoBehaviour
 		BaseMeleePower = Template.MeleePower;
 		MaxHealth = Template.BaseHealth;
 		MaxArmor = Template.BaseArmor;
+		Ani = GetComponent<Animator>();
+		Ani.SetInteger("CreatureID", Template.CreatureID);
 		Reset();
 		
 		foreach(AttackName attack in Template.Attacks) // Can be rearranged between rounds
@@ -68,6 +71,7 @@ public class Ally : MonoBehaviour
 	{
 		int enemyIdx = Random.Range(0, enemies.Count);
 		enemies[enemyIdx].Health -= MeleePower;
+		Ani.SetTrigger("Attack");
 	}
 
 	public void CharmMagicAttack(List<Enemy> enemies)

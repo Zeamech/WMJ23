@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: BlueSquirrel
   m_EditorClassIdentifier: 
   Attacks: 000000000000000000000000
-  Icon: {fileID: 0}
+  Icon: {fileID: 121813241, guid: 81ef207da1a476b4f84569b5a23daf52, type: 3}
   Animator: {fileID: 0}
   CreatureName: Blue Squirrel
+  CreatureID: 2
   MeleePower: 3
   BaseHealth: 6
   BaseCharm: 100
