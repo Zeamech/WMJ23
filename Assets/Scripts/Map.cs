@@ -70,6 +70,7 @@ public class Map : MonoBehaviour
         // Enable the BoxColliders (clickable locations) for the current layer
         foreach(MapLocation mapLocation in MapLocations[0]) mapLocation.BoxCollider.enabled = true;
 
+        // Set up all of the LineRenderers. 
     }
 
     public enum LocationType
