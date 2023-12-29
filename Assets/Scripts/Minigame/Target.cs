@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public bool Clicked;
-
     private void OnMouseDown()
     {
-        Clicked = true;
-    }
-
-    private void OnMouseUp()
-    {
-        Clicked= false;
+        Minigame.Instance.CheckClickedTarget(gameObject);
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Minigame : MonoBehaviour
 {
+    public static Minigame Instance;
     public List<GameObject> Targets = new List<GameObject>();
-    public Target TargetScript;
     public ClickLine ClickLineScript;
 
     public GameObject TargetPrefab;
@@ -23,16 +23,22 @@ public class Minigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         StartCoroutine(SpawnTargetsRandom());
-        TargetScript = GetComponent<Target>();
-        ClickLineScript = GetComponent<ClickLine>();
     }
 
     // Update is called once per frame
     void Update()
     {
         TargetMovement();
-        CheckClickedTarget();
+        if (TargetsClicked == NumberOfTargets)
+        {
+            Debug.Log("Game Won");
+        }
+        else if (Targets.Count == 0 & TargetsClicked < NumberOfTargets)
+        {
+            Debug.Log("Game Lose");
+        }
     }
 
     IEnumerator SpawnTargetsRandom()
@@ -52,6 +58,11 @@ public class Minigame : MonoBehaviour
         }
     }
 
+    public void TargetRemoveList(GameObject Target)
+    {
+        Targets.Remove(Target);
+    }
+
     public void TargetMovement()
     {
         foreach(var target in Targets)
@@ -60,19 +71,14 @@ public class Minigame : MonoBehaviour
         }
     }
 
-    public void CheckClickedTarget()
+    public void CheckClickedTarget(GameObject Target)
     {
-        if(TargetsClicked == NumberOfTargets)
+        var Colour = Target.GetComponent<Renderer>();
+        if (ClickLineScript.ClickNow)
         {
-            //GameWon
-        }
-        else
-        {
-            //GameLose
-        }
-        if(TargetScript.Clicked && ClickLineScript.ClickNow)
-        {
+            Colour.material.color = Color.green;
             TargetsClicked++;
+            Debug.Log("Target Hit");
         }
     }
 }
