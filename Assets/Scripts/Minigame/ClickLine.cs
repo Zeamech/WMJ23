@@ -12,6 +12,11 @@ public class ClickLine : MonoBehaviour
         Debug.Log("Click Now");
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        ClickNow = true;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         ClickNow = false;
