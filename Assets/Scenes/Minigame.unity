@@ -573,11 +573,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Targets: []
-  TargetScript: {fileID: 5388655516956874212, guid: f2940ddca7f874e409ee0aba913b888e, type: 3}
   ClickLineScript: {fileID: 1941426492}
   TargetPrefab: {fileID: 4429198815818046178, guid: f2940ddca7f874e409ee0aba913b888e, type: 3}
-  TargetSpeed: 4
-  NumberOfTargets: 10
+  TargetSpeed: 2
+  NumberOfTargets: 2
   MinSpawnSpeed: 0.3
   MaxSpawnSpeed: 1
   Spawner1: {fileID: 809945533}

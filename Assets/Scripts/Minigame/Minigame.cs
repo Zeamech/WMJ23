@@ -6,6 +6,8 @@ public class Minigame : MonoBehaviour
 {
     public static Minigame Instance;
     public List<GameObject> Targets = new List<GameObject>();
+    public enum Song {One, Two, Three}
+    public Song song;
     public ClickLine ClickLineScript;
 
     public GameObject TargetPrefab;
@@ -21,6 +23,11 @@ public class Minigame : MonoBehaviour
     public GameObject Spawner3;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        SongSelection();
+    }
+
     void Start()
     {
         Instance = this;
@@ -45,13 +52,14 @@ public class Minigame : MonoBehaviour
     {
         for (int i = 0; i < NumberOfTargets; i++)
         {
+            Transform CloneParent = GameObject.Find("Target Prefabs").transform;
             Countdown = Random.Range(MinSpawnSpeed, MaxSpawnSpeed);
             int Spawner = Random.Range(1, 4);
             switch (Spawner)
             {
-                case 1: Targets.Add(Instantiate(TargetPrefab, Spawner1.transform.position, Spawner1.transform.rotation)); break;
-                case 2: Targets.Add(Instantiate(TargetPrefab, Spawner2.transform.position, Spawner2.transform.rotation)); break;
-                case 3: Targets.Add(Instantiate(TargetPrefab, Spawner3.transform.position, Spawner3.transform.rotation)); break;
+                case 1: Targets.Add(Instantiate(TargetPrefab, Spawner1.transform.position, Spawner1.transform.rotation, CloneParent)); break;
+                case 2: Targets.Add(Instantiate(TargetPrefab, Spawner2.transform.position, Spawner2.transform.rotation, CloneParent)); break;
+                case 3: Targets.Add(Instantiate(TargetPrefab, Spawner3.transform.position, Spawner3.transform.rotation, CloneParent)); break;
             }
             yield return new WaitForSeconds (Countdown);
 
@@ -79,6 +87,16 @@ public class Minigame : MonoBehaviour
             Colour.material.color = Color.green;
             TargetsClicked++;
             Debug.Log("Target Hit");
+        }
+    }
+
+    public void SongSelection()
+    {
+        switch (song)
+        {
+            case Song.One: TargetSpeed = 1; NumberOfTargets = 1; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
+            case Song.Two: TargetSpeed = 2; NumberOfTargets = 2; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
+            case Song.Three: TargetSpeed = 3; NumberOfTargets = 3; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
         }
     }
 }
