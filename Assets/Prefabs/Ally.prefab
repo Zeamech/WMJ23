@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7476482192481432225}
   - component: {fileID: 4509445718693774823}
   - component: {fileID: 6731159360290334320}
-  - component: {fileID: 7817625970200965152}
   m_Layer: 0
   m_Name: Ally
   m_TagString: Untagged
@@ -98,9 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c016cf68a4b124b82db7fde78bb1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteRenderer: {fileID: 0}
-  Ani: {fileID: 0}
-  Template: {fileID: 11400000, guid: e8e5217ca1725624ba4304452b3eb2ad, type: 2}
+  SpriteRenderer: {fileID: 4509445718693774823}
+  Template: {fileID: 11400000, guid: 063b3182af16db24097cdbec269c3152, type: 2}
   CharmLevel: 0
   Charms: []
   BaseMeleePower: 0
@@ -110,24 +108,3 @@ MonoBehaviour:
   Health: 0
   Armor: 0
   AttackIndex: 0
---- !u!95 &7817625970200965152
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2726902426963103286}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 47c11fb385190854fb5042e0579e7ef9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

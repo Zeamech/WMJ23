@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9435d8dd9d2e7514e8ce2a3366ddd6cd, type: 3}
   m_Name: PinkFox
   m_EditorClassIdentifier: 
-  Attacks: 000000000000000000000000
-  Icon: {fileID: -1554185134, guid: 81ef207da1a476b4f84569b5a23daf52, type: 3}
+  Attacks: 010000000100000000000000
+  Icon: {fileID: 642377404, guid: 4688eb924cbb7254aa7fa087cb12f344, type: 3}
   Animator: {fileID: 0}
   CreatureName: Pink Fox
-  CreatureID: 0
   MeleePower: 2
   BaseHealth: 8
   BaseCharm: 200
   BaseArmor: 4
-  Owned: 1

@@ -24,7 +24,8 @@ public class Ally : MonoBehaviour
 	public void Start()
 	{
 		SpriteRenderer = GetComponent<SpriteRenderer>();
-		SpriteRenderer.enabled = true;
+		SpriteRenderer.sprite = Template.Icon;
+
 		Attacks = new List<Attack>();
 		Charms = new List<Charm>();
 		CharmLevel = Template.BaseCharm;

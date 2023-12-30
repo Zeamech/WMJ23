@@ -28,6 +28,9 @@ public class Battle : MonoBehaviour
 			Party[2].transform.position = new Vector3(-1, -1f, 0);
 		}
 
+		// Enable the sprite renderers
+		foreach (Ally ally in Party) ally.SpriteRenderer.enabled = true;
+
 		// Instantiate the enemies from the encounter and enemy templates and position them
 		int enemyIdx = 0;
 		Enemies = new List<Enemy>();
