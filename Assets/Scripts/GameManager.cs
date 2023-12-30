@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,7 +30,22 @@ public class GameManager : MonoBehaviour
         Gold = 20;
         CurrentLayer = 0;
 
-        StartBattle();
+        if(SceneManager.GetActiveScene().name == "Minigame")
+        {
+            Debug.Log("Minigame Started");
+        }
+        else if (SceneManager.GetActiveScene().name == "Battle")
+        {
+            Debug.Log("Battle Started");
+            StartBattle();
+        }
+        else if(SceneManager.GetActiveScene().name == "Map")
+        {
+            Debug.Log("Map Loaded");
+            Map = ExtensionMethod.Instantiate(MapPrefab, MapLocationPrefab, MapArrowPrefab);
+            CoinText = GameObject.Find("CoinText").GetComponent<TextMeshPro>();
+            CoinText.text = Gold.ToString();
+        }
 
         // Debug
         GameObject PartyGO = new GameObject("Party");
@@ -37,15 +53,7 @@ public class GameManager : MonoBehaviour
         Party.Add(Instantiate(CreaturePrefabs[1], PartyGO.transform).GetComponent<Ally>());
         Party.Add(Instantiate(CreaturePrefabs[2], PartyGO.transform).GetComponent<Ally>());
 
-        /* Generate Map
-        Map = ExtensionMethod.Instantiate(MapPrefab, MapLocationPrefab, MapArrowPrefab);
-        CoinText = GameObject.Find("CoinText").GetComponent<TextMeshPro>();
-        CoinText.text = Gold.ToString(); */
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
