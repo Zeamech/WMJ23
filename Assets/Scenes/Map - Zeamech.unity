@@ -319,8 +319,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a67bc1fe05836428eefcc82970657d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CreaturePrefabs: []
+  BattleFieldPrefab: {fileID: 0}
   MapPrefab: {fileID: 1648691333089086292, guid: bb3c1f85ee855604585cce262952274a, type: 3}
   MapLocationPrefab: {fileID: 2771605854401834292, guid: 25ce9094b33a7a54e92e7d188a353cb7, type: 3}
+  MapArrowPrefab: {fileID: 0}
+  CoinText: {fileID: 0}
   Map: {fileID: 0}
   Party: []
   Gold: 0
@@ -1855,15 +1859,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 92d83ba9efadf20458267c48d95453a5, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
