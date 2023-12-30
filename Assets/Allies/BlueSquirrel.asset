@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueSquirrel
   m_EditorClassIdentifier: 
   Attacks: 020000000000000001000000
-  Icon: {fileID: -4112723354165864480, guid: 81ef207da1a476b4f84569b5a23daf52, type: 3}
+  Icon: {fileID: 325361938439990280, guid: 81ef207da1a476b4f84569b5a23daf52, type: 3}
   Animator: {fileID: 0}
   CreatureName: Blue Squirrel
   CreatureID: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GreenArdo
   m_EditorClassIdentifier: 
   Attacks: 00000000
-  Icon: {fileID: -9158143028569640534, guid: 81ef207da1a476b4f84569b5a23daf52, type: 3}
+  Icon: {fileID: -6680592247159465639, guid: 81ef207da1a476b4f84569b5a23daf52, type: 3}
   Animator: {fileID: 0}
   CreatureName: Ardo
   CreatureID: 3

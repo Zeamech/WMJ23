@@ -150,10 +150,10 @@ public class Minigame : MonoBehaviour
     {
         switch (SelectedAlly.CreatureID)
         {
-            case 2: AudioDataSong1.Play(); TargetSpeed = 1; NumberOfTargets = 1; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
-            case 1: AudioDataSong2.Play(); TargetSpeed = 2; NumberOfTargets = 2; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
+            case 2: AudioDataSong1.Play(); TargetSpeed = 2; NumberOfTargets = 12; MinSpawnSpeed = 1.25f; MaxSpawnSpeed = 2; break;
+            case 1: AudioDataSong2.Play(); TargetSpeed = 2.5f; NumberOfTargets = 15; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
             case 3: AudioDataSong3.Play(); TargetSpeed = 1.5f; NumberOfTargets = 8; MinSpawnSpeed = 1.5f; MaxSpawnSpeed = 3; break;
-            case 0: AudioDataSong4.Play(); TargetSpeed = 1.5f; NumberOfTargets = 8; MinSpawnSpeed = 1.5f; MaxSpawnSpeed = 3; break;
+            case 0: AudioDataSong4.Play(); TargetSpeed = 3; NumberOfTargets = 20; MinSpawnSpeed = 0.5f; MaxSpawnSpeed = 1; break;
         }
     }
 
@@ -175,6 +175,7 @@ public class Minigame : MonoBehaviour
         AudioDataSong1.Stop();
         AudioDataSong2.Stop();
         AudioDataSong3.Stop();
+        AudioDataSong4.Stop();
     }
 
     public void GameWon()
@@ -195,6 +196,7 @@ public class Minigame : MonoBehaviour
         AudioDataSong1.Stop();
         AudioDataSong2.Stop();
         AudioDataSong3.Stop();
+        AudioDataSong4.Stop();
         GameManager.Party.Add(Instantiate(SelectedAlly, GameObject.Find("Party").transform).GetComponent<Ally>());
     }
 
