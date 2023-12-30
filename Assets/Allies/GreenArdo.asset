@@ -21,3 +21,4 @@ MonoBehaviour:
   BaseHealth: 5
   BaseCharm: 100
   BaseArmor: 1
+  Owned: 0

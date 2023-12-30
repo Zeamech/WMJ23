@@ -14,6 +14,7 @@ public class AllySO : ScriptableObject
 	public int BaseHealth;
 	public int BaseCharm; // 0-1000
 	public int BaseArmor;
+	public bool Owned;
 
 	public enum AttackName
 	{

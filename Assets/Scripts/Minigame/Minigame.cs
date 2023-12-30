@@ -2,14 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class Minigame : MonoBehaviour
 {
     public static Minigame Instance;
     public List<GameObject> Targets = new List<GameObject>();
+    public List<AllySO> Allies = new List<AllySO>();
     public enum Song {One, Two, Three}
     public Song song;
     public ClickLine ClickLineScript;
+    public GameManager GameManager;
+
+    public Image Creature;
+    public AllySO BlueSquirrel;
+    public AllySO GoldBear;
+    public AllySO GreenArdo;
+    public AllySO PinkFox;
+    public AllySO SelectedAlly;
 
     public AudioListener Listener;
     public AudioSource AudioDataSong1;
@@ -30,10 +42,36 @@ public class Minigame : MonoBehaviour
     public GameObject HowToPlay;
     public GameObject LoseScreen;
     public GameObject GameWonScreen;
+    
 
     private void Awake()
     {
         Instance = this;
+        GameManager = GetComponent<GameManager>();
+        Creature = GameObject.Find("Creature").GetComponent<Image>();
+    }
+
+    public void Start()
+    {
+        for (int i = 0; i < Allies.Count; i++)
+        {
+            if (Allies[i].Owned)
+            {
+                Allies.Remove(Allies[i]);
+            }
+        }
+
+        int random = Random.Range(0, Allies.Count);
+        SelectedAlly = Allies[random];
+        Debug.Log(SelectedAlly);
+        if (SelectedAlly.Icon != null)
+        {
+            Creature.sprite = SelectedAlly.Icon;
+        }
+        else
+        {
+            Creature.sprite = null;
+        }
     }
 
     IEnumerator SpawnTargetsRandom()
@@ -45,11 +83,26 @@ public class Minigame : MonoBehaviour
             int Spawner = Random.Range(1, 4);
             switch (Spawner)
             {
-                case 1: Targets.Add(Instantiate(TargetPrefab, Spawner1.transform.position, Spawner1.transform.rotation, CloneParent)); Target.Instance.TargetSpeed = TargetSpeed; break;
-                case 2: Targets.Add(Instantiate(TargetPrefab, Spawner2.transform.position, Spawner2.transform.rotation, CloneParent)); Target.Instance.TargetSpeed = TargetSpeed; break;
-                case 3: Targets.Add(Instantiate(TargetPrefab, Spawner3.transform.position, Spawner3.transform.rotation, CloneParent)); Target.Instance.TargetSpeed = TargetSpeed; break;
+                case 1: Instantiate(TargetPrefab, Spawner1.transform.position, Spawner1.transform.rotation, CloneParent); Target.Instance.TargetSpeed = TargetSpeed; break;
+                case 2: Instantiate(TargetPrefab, Spawner2.transform.position, Spawner2.transform.rotation, CloneParent); Target.Instance.TargetSpeed = TargetSpeed; break;
+                case 3: Instantiate(TargetPrefab, Spawner3.transform.position, Spawner3.transform.rotation, CloneParent); Target.Instance.TargetSpeed = TargetSpeed; break;
             }
+            RefreshList();
             yield return new WaitForSeconds(Countdown);
+        }
+    }
+
+    public void RefreshList()
+    {
+        Targets.Clear();
+        Transform CloneParent = GameObject.Find("Target Prefabs").transform;
+        foreach(Transform prefab in CloneParent)
+        {
+            if(prefab != null)
+            {
+                Targets.Add(prefab.gameObject);
+            }
+            
         }
     }
 
@@ -60,7 +113,12 @@ public class Minigame : MonoBehaviour
         {
             GameLose();
         }
-        Targets.Remove(Target);
+        else 
+        {
+            RefreshList();
+            Targets.Remove(Target);
+        }
+        
     }
 
     public void CheckClickedTarget(GameObject Target)
@@ -98,13 +156,13 @@ public class Minigame : MonoBehaviour
 
     public void GameLose()
     {
-        foreach(var target in Targets)
+        Targets.Clear();
+        foreach (var target in Targets)
         {
             Destroy(target);
         }
         StopAllCoroutines();
         NumberOfTargets = 0;
-        Targets.Clear();
         LoseScreen.SetActive(true);
         AudioDataSong1.Stop();
         AudioDataSong2.Stop();
@@ -113,16 +171,17 @@ public class Minigame : MonoBehaviour
 
     public void GameWon()
     {
+        Targets.Clear();
         foreach (var target in Targets)
         {
             Destroy(target);
         }
         StopAllCoroutines();
         NumberOfTargets = 0;
-        Targets.Clear();
         GameWonScreen.SetActive(true);
         AudioDataSong1.Stop();
         AudioDataSong2.Stop();
         AudioDataSong3.Stop();
+        GameManager.Party.Add(SelectedAlly);
     }
 }
