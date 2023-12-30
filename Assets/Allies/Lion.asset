@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9435d8dd9d2e7514e8ce2a3366ddd6cd, type: 3}
+  m_Name: Lion
+  m_EditorClassIdentifier: 
+  Attacks: 
+  Icon: {fileID: 0}
+  Animator: {fileID: 0}
+  CreatureName: 
+  CreatureID: 0
+  MeleePower: 0
+  BaseHealth: 0
+  BaseCharm: 0
+  BaseArmor: 0
+  Owned: 0
