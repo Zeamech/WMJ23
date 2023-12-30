@@ -21,9 +21,15 @@ public class Ally : MonoBehaviour
 	[HideInInspector] public int Health;
 	[HideInInspector] public int Armor;
 	[HideInInspector] public int AttackIndex = 0;
-	public void Start()
+    private void Awake()
+    {
+        SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer.enabled = false;
+    }
+
+    public void Start()
 	{
-		SpriteRenderer = GetComponent<SpriteRenderer>();
+		
 		SpriteRenderer.sprite = Template.Icon;
 
 		Attacks = new List<Attack>();

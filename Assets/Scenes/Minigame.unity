@@ -957,7 +957,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 746670274}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474869693}
+        m_TargetAssemblyTypeName: Minigame, Assembly-CSharp
+        m_MethodName: BackToMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &746670274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,7 +1470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1111248661}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1474869693}
+        m_TargetAssemblyTypeName: Minigame, Assembly-CSharp
+        m_MethodName: BackToMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1111248661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,6 +2224,8 @@ MonoBehaviour:
   HowToPlay: {fileID: 346442626}
   LoseScreen: {fileID: 525456518}
   GameWonScreen: {fileID: 80562117}
+  Map:
+    m_Handle: 0
 --- !u!82 &1474869694
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2500,8 +2526,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a67bc1fe05836428eefcc82970657d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CreaturePrefabs:
+  - {fileID: 2726902426963103286, guid: 55b0c5ac30bbaf24ea890413a56861c9, type: 3}
+  - {fileID: 2726902426963103286, guid: 8e4be0fef3d19274ab73aa0956cfa36f, type: 3}
+  - {fileID: 2726902426963103286, guid: 63c36d3b5a0f6494099d898378a0007d, type: 3}
+  BattleFieldPrefab: {fileID: 0}
   MapPrefab: {fileID: 0}
   MapLocationPrefab: {fileID: 0}
+  MapArrowPrefab: {fileID: 0}
+  CoinText: {fileID: 0}
   Map: {fileID: 0}
   Party: []
   Gold: 0

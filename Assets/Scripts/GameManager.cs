@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
         Party = new List<Ally>();
         Gold = 20;
         CurrentLayer = 0;
-        
+
+        StartBattle();
 
         // Debug
         GameObject PartyGO = new GameObject("Party");
@@ -40,14 +41,21 @@ public class GameManager : MonoBehaviour
         Map = ExtensionMethod.Instantiate(MapPrefab, MapLocationPrefab, MapArrowPrefab);
         CoinText = GameObject.Find("CoinText").GetComponent<TextMeshPro>();
         CoinText.text = Gold.ToString(); */
-
-        // Start a Battle
-        ExtensionMethod.Instantiate(BattleFieldPrefab, Party);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartBattle()
+    {
+        ExtensionMethod.Instantiate(BattleFieldPrefab, Party);
+        for (int i = 0; i < Party.Count; i++)
+        {
+            var creature = Party[i];
+            creature.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }
