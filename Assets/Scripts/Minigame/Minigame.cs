@@ -185,7 +185,7 @@ public class Minigame : MonoBehaviour
         AudioDataSong1.Stop();
         AudioDataSong2.Stop();
         AudioDataSong3.Stop();
-        GameManager.Party.Add(SelectedAlly);
+        GameManager.Party.Add(Instantiate(SelectedAlly, GameObject.Find("Party").transform).GetComponent<Ally>());
     }
 
     public void BackToMap()
