@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: GoldBear
   m_EditorClassIdentifier: 
   Attacks: 000000000000000002000000
-  Icon: {fileID: 206200774, guid: 4688eb924cbb7254aa7fa087cb12f344, type: 3}
+  Icon: {fileID: 8264159069134249270, guid: 81ef207da1a476b4f84569b5a23daf52, type: 3}
   Animator: {fileID: 0}
   CreatureName: Gold Bear
+  CreatureID: 1
   MeleePower: 4
   BaseHealth: 8
   BaseCharm: 0
   BaseArmor: 8
+  Owned: 0

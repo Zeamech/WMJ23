@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Map;
 
 public class MapLocation : MonoBehaviour
@@ -43,7 +44,7 @@ public class MapLocation : MonoBehaviour
 	{
 		switch(Location)
 		{
-			case LocationType.Creature: break;
+			case LocationType.Creature: SceneManager.LoadScene("Minigame"); break;
 			case LocationType.Battle: break;
 			case LocationType.Treasure: break;
 			case LocationType.Shop: break;

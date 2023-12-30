@@ -12,8 +12,6 @@ public class Minigame : MonoBehaviour
     public static Minigame Instance;
     public List<GameObject> Targets = new List<GameObject>();
     public List<AllySO> Allies = new List<AllySO>();
-    public enum Song {One, Two, Three}
-    public Song song;
     public ClickLine ClickLineScript;
     public GameManager GameManager;
 
@@ -28,6 +26,7 @@ public class Minigame : MonoBehaviour
     public AudioSource AudioDataSong1;
     public AudioSource AudioDataSong2;
     public AudioSource AudioDataSong3;
+    public AudioSource AudioDataSong4;
 
     public GameObject TargetPrefab;
     public float TargetSpeed;
@@ -149,21 +148,27 @@ public class Minigame : MonoBehaviour
 
     public void SongSelection()
     {
-        switch (song)
+        switch (SelectedAlly.CreatureID)
         {
-            case Song.One: AudioDataSong1.Play(); TargetSpeed = 1; NumberOfTargets = 1; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
-            case Song.Two: AudioDataSong2.Play(); TargetSpeed = 2; NumberOfTargets = 2; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
-            case Song.Three: AudioDataSong3.Play(); TargetSpeed = 1.5f; NumberOfTargets = 8; MinSpawnSpeed = 1.5f; MaxSpawnSpeed = 3; break;
+            case 2: AudioDataSong1.Play(); TargetSpeed = 1; NumberOfTargets = 1; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
+            case 1: AudioDataSong2.Play(); TargetSpeed = 2; NumberOfTargets = 2; MinSpawnSpeed = 0.2f; MaxSpawnSpeed = 1; break;
+            case 3: AudioDataSong3.Play(); TargetSpeed = 1.5f; NumberOfTargets = 8; MinSpawnSpeed = 1.5f; MaxSpawnSpeed = 3; break;
+            case 0: AudioDataSong4.Play(); TargetSpeed = 1.5f; NumberOfTargets = 8; MinSpawnSpeed = 1.5f; MaxSpawnSpeed = 3; break;
         }
     }
 
     public void GameLose()
     {
         StopAllCoroutines();
-        for (var i = 0; i < Targets.Count; i++)
+        Transform CloneParent = GameObject.Find("Target Prefabs").transform;
+        foreach (Transform prefab in CloneParent)
         {
-            Destroy(Targets[i].gameObject);
-            Targets.Remove(Targets[i]);
+            if (prefab != null)
+            {
+                Targets.Remove(prefab.gameObject);
+                Destroy(prefab.gameObject);
+            }
+
         }
         NumberOfTargets = 0;
         LoseScreen.SetActive(true);
@@ -175,10 +180,15 @@ public class Minigame : MonoBehaviour
     public void GameWon()
     {
         StopAllCoroutines();
-        for (var i = 0; i < Targets.Count; i++)
+        Transform CloneParent = GameObject.Find("Target Prefabs").transform;
+        foreach (Transform prefab in CloneParent)
         {
-            Destroy(Targets[i].gameObject);
-            Targets.Remove(Targets[i]);
+            if (prefab != null)
+            {
+                Targets.Remove(prefab.gameObject);
+                Destroy(prefab.gameObject);
+            }
+
         }
         NumberOfTargets = 0;
         GameWonScreen.SetActive(true);
