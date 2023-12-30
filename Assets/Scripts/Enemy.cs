@@ -23,5 +23,6 @@ public class Enemy : MonoBehaviour
 	public void MeleeAttack(Ally ally)
 	{
 		ally.Health -= Attack;
+		Animator.SetTrigger("Attack");
 	}
 }
