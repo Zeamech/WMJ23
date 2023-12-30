@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7476482192481432225}
   - component: {fileID: 4509445718693774823}
   - component: {fileID: 6731159360290334320}
+  - component: {fileID: -1071787462309357927}
   m_Layer: 0
   m_Name: BlueSquirrel
   m_TagString: Untagged
@@ -98,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 4509445718693774823}
+  Ani: {fileID: 0}
   Template: {fileID: 11400000, guid: 8b911a1797b801d419a3d31e2c1fe2fc, type: 2}
   CharmLevel: 0
   Charms: []
@@ -108,3 +110,24 @@ MonoBehaviour:
   Health: 0
   Armor: 0
   AttackIndex: 0
+--- !u!95 &-1071787462309357927
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726902426963103286}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47c11fb385190854fb5042e0579e7ef9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
