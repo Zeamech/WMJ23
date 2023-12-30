@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Party: []
   AllyCardPrefab: {fileID: 3914170706506220222, guid: 7f0ca3f92c42b9d408b156db33b5b42f, type: 3}
+  AllyCards: []
