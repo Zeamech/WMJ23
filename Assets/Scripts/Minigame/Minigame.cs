@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class Minigame : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class Minigame : MonoBehaviour
     public GameObject HowToPlay;
     public GameObject LoseScreen;
     public GameObject GameWonScreen;
+
+    public Scene Map;
     
 
     private void Awake()
@@ -156,12 +159,12 @@ public class Minigame : MonoBehaviour
 
     public void GameLose()
     {
-        Targets.Clear();
-        foreach (var target in Targets)
-        {
-            Destroy(target);
-        }
         StopAllCoroutines();
+        for (var i = 0; i < Targets.Count; i++)
+        {
+            Destroy(Targets[i].gameObject);
+            Targets.Remove(Targets[i]);
+        }
         NumberOfTargets = 0;
         LoseScreen.SetActive(true);
         AudioDataSong1.Stop();
@@ -171,17 +174,22 @@ public class Minigame : MonoBehaviour
 
     public void GameWon()
     {
-        Targets.Clear();
-        foreach (var target in Targets)
-        {
-            Destroy(target);
-        }
         StopAllCoroutines();
+        for (var i = 0; i < Targets.Count; i++)
+        {
+            Destroy(Targets[i].gameObject);
+            Targets.Remove(Targets[i]);
+        }
         NumberOfTargets = 0;
         GameWonScreen.SetActive(true);
         AudioDataSong1.Stop();
         AudioDataSong2.Stop();
         AudioDataSong3.Stop();
         GameManager.Party.Add(SelectedAlly);
+    }
+
+    public void BackToMap()
+    {
+        SceneManager.LoadScene("Map");
     }
 }
