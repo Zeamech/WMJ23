@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    public float YSpacing;
-    public float XSpacing;
+    public float YSpacing = 2;
+    public float XSpacing = 3;
     [HideInInspector] public GameObject MapLocationPrefab;
     [HideInInspector] public SpriteRenderer BGSpriteRenderer;
     [HideInInspector] public List<List<LocationType>> MapLocationTypes;
