@@ -2184,6 +2184,7 @@ MonoBehaviour:
   GoldBear: {fileID: 11400000, guid: 063b3182af16db24097cdbec269c3152, type: 2}
   GreenArdo: {fileID: 11400000, guid: 8ca921c1be8ff8b408a9c8d95c4eac3b, type: 2}
   PinkFox: {fileID: 11400000, guid: c722e965186f09349ac2476c4e8754d4, type: 2}
+  SelectedAlly: {fileID: 0}
   Listener: {fileID: 1390191686}
   AudioDataSong1: {fileID: 1474869694}
   AudioDataSong2: {fileID: 1474869695}
@@ -2502,8 +2503,7 @@ MonoBehaviour:
   MapPrefab: {fileID: 0}
   MapLocationPrefab: {fileID: 0}
   Map: {fileID: 0}
-  Party:
-  - {fileID: 11400000, guid: c722e965186f09349ac2476c4e8754d4, type: 2}
+  Party: []
   Gold: 0
   CurrentLayer: 0
 --- !u!1 &1554999091
