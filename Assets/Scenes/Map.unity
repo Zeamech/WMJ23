@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 2726902426963103286, guid: 55b0c5ac30bbaf24ea890413a56861c9, type: 3}
   - {fileID: 2726902426963103286, guid: 8e4be0fef3d19274ab73aa0956cfa36f, type: 3}
   - {fileID: 2726902426963103286, guid: 63c36d3b5a0f6494099d898378a0007d, type: 3}
+  BattleFieldPrefab: {fileID: 2287789397860461146, guid: b213d66372ab1c94ab1de7fec46b6c58, type: 3}
   MapPrefab: {fileID: 1648691333089086292, guid: bb3c1f85ee855604585cce262952274a, type: 3}
   MapLocationPrefab: {fileID: 2771605854401834292, guid: 25ce9094b33a7a54e92e7d188a353cb7, type: 3}
   MapArrowPrefab: {fileID: 7343398064825953584, guid: 66eecb0bd14417c4fa7331c951a973cc, type: 3}

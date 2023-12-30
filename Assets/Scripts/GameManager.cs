@@ -36,13 +36,13 @@ public class GameManager : MonoBehaviour
         Party.Add(Instantiate(CreaturePrefabs[1], PartyGO.transform).GetComponent<Ally>());
         Party.Add(Instantiate(CreaturePrefabs[2], PartyGO.transform).GetComponent<Ally>());
 
-        /* Generate Map
+        // Generate Map
         Map = ExtensionMethod.Instantiate(MapPrefab, MapLocationPrefab, MapArrowPrefab);
         CoinText = GameObject.Find("CoinText").GetComponent<TextMeshPro>();
-        CoinText.text = Gold.ToString(); */
+        CoinText.text = Gold.ToString(); 
 
         // Start a Battle
-        ExtensionMethod.Instantiate(BattleFieldPrefab, Party);
+        //ExtensionMethod.Instantiate(BattleFieldPrefab, Party);
     }
 
     // Update is called once per frame
